@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import subprocess
 
 
 def createDriver() -> webdriver.Chrome:
@@ -19,14 +20,18 @@ def createDriver() -> webdriver.Chrome:
 
 
 def getGoogleHomepage(driver: webdriver.Chrome) -> str:
-    driver.get("https://www.google.com")
+    driver.get("https://secure.technicaltraffic.com/carrier/CarrierInquiry.aspx")
     return driver.page_source
 
 
-def doBackgroundTask(inp):
+def doBackgroundTask():
     print("Doing background task")
     driver = createDriver()
     homepage = getGoogleHomepage(driver)
     driver.close()
-    print(inp.msg)
+    # print(inp.msg)
     print("Done")
+    optimizer_path = r'C:\KGLogix\Python\Optimization\Scripts\main\main.exe'
+    process_file = r"C:\KGLogix\Python\Optimization\ProcessFiles\test.json"
+
+    # subprocess.call([r"C:\python_apps\ttc_bot\output\ttc_bot\ttc_bot.exe", "mposada@lean-tech.io"])
